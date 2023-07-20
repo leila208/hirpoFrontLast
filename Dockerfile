@@ -7,8 +7,15 @@ RUN npm install && npm run build
 
 FROM nginx:1.21.3-alpine
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+# React uygulamasının build imajını alın
 
+
+# Nginx yapılandırma dosyanızı kopyalayın
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+# React uygulamanızın üretim build dosyalarını Nginx üzerinde yayınlayın
+COPY build /var/www/react-app
 
 EXPOSE 80
-CMD nginx -g "daemon off;"
+
+CMD ["nginx", "-g", "daemon off;"]
