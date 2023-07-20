@@ -13,7 +13,7 @@ function Weights() {
   const project_id = window.localStorage.getItem("project");
   const getData = async () => {
     const token = localStorage.getItem("access_token");
-    const response = await fetch("http://127.0.0.1:8000/wizard/depposition/", {
+    const response = await fetch("https://admin.hirpo.net/wizard/depposition/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -41,7 +41,7 @@ function Weights() {
   };
 
   const updateWeight = async (skillsToUpdate) => {
-    const a = await fetch(`http://127.0.0.1:8000/wizard/weightUpdateView`, {
+    const a = await fetch(`https://admin.hirpo.net/wizard/weightUpdateView`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

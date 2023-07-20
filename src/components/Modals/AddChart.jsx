@@ -8,7 +8,7 @@ function AddChart({ setAddChartModal, memberId,getPositionData }) {
   const handleAdd = async (e) => {
     e.preventDefault();
 
-    const a = await fetch("http://127.0.0.1:8000/wizard/PositionAddView/", {
+    const a = await fetch("https://admin.hirpo.net/wizard/PositionAddView/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

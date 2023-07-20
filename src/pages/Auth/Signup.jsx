@@ -29,7 +29,7 @@ function Signup() {
   const [errorSign, setErrorSign] = useState("");
   const onSubmit = async (e) => {
     e.preventDefault();
-    const a = await fetch("http://127.0.0.1:8000/account/register", {
+    const a = await fetch("https://admin.hirpo.net/account/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
