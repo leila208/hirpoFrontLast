@@ -14,7 +14,7 @@ FROM nginx:1.21.3-alpine
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # React uygulamanızın üretim build dosyalarını Nginx üzerinde yayınlayın
-COPY build /var/www/hirpoFrontLast
+# COPY build /var/www/hirpoFrontLast
 
 EXPOSE 80
 
