@@ -31,6 +31,7 @@ function Competency() {
     };
     getData();
   }, []);
+  console.log(oneCompetency)
   return (
     <>
       <Navbar />

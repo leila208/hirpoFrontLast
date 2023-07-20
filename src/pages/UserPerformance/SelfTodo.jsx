@@ -56,6 +56,7 @@ function SelfTodo() {
     };
     getData();
   }, []);
+  console.log(users)
   return (
     <>
       <Navbar />
@@ -96,7 +97,10 @@ function SelfTodo() {
                     <div className="user">
                       <p>
                         Position:
-                        <span>{user.employee.positionName}</span>
+                        <span>
+                          {user.employee?.position?.positionlevel?.name}{""} - {""}
+                          {user.employee?.position?.name}
+                        </span>
                       </p>
                     </div>
                   </div>

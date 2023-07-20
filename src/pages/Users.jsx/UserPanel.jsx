@@ -77,6 +77,7 @@ function UserPanel() {
     };
     getData();
   }, []);
+  console.log(user)
   const myuserid = user.user?.id;
   const saveNewPasswords = async (e) => {
     window.location.reload();
@@ -111,7 +112,7 @@ function UserPanel() {
     };
     getData();
   }, []);
-
+console.log(users)
 
   const [photoModal, setPhotoModal] = useState(false);
   let number = parseInt(Math.round(user.total?.total_score / 10));
@@ -152,11 +153,14 @@ function UserPanel() {
                   {user.first_name} {user.last_name}
                 </span>
               </p>
+
               <p>
-                Position name:<span>{user.positionName}</span>
+                Position level:{" "}
+                <span>{user.position?.positionlevel?.name}</span>
               </p>
               <p>
-                Position level: <span>{user.position?.name}</span>
+                Position :{" "}
+                <span>{user.position?.name}</span>
               </p>
               <p>
                 Report to:
@@ -166,9 +170,7 @@ function UserPanel() {
               </p>
               <p>
                 Department:
-                <span>
-                   {user.position?.department?.name}
-                </span>
+                <span>{user.position?.positionlevel?.department?.name}</span>
               </p>
             </div>
 
