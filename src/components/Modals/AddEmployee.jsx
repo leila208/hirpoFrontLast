@@ -38,7 +38,7 @@ function AddEmployee({
   const saveAddedEmployeer = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("access_token");
-    const a = await fetch("https://admin.hirpo.net/wizard/AddUser/", {
+    const a = await fetch("http://127.0.0.1:8000/wizard/AddUser/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ function AddEmployee({
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "https://admin.hirpo.net/wizard/PositionSelect/",
+        "http://127.0.0.1:8000/wizard/PositionSelect/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -81,7 +81,7 @@ function AddEmployee({
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "https://admin.hirpo.net/wizard/EmployeeListView/",
+        "http://127.0.0.1:8000/wizard/EmployeeListView/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
