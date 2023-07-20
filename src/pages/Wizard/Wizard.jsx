@@ -6,6 +6,7 @@ import { useState,useEffect} from "react";
 import "./wizard.css";
 import refreshToken from "../Auth/Refresh";
 function Wizard() {
+  // "lllllllllllll"
   refreshToken();
   const nav = useNavigate();
   const companyleader = window.localStorage.getItem("userId");
