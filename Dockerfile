@@ -1,10 +1,10 @@
-FROM node:14 as builder
+FROM node:18 as builder
 
 WORKDIR /app
 
 # Proje bağımlılıklarını kopyala ve bağımlılıkları yükle
 COPY package*.json ./
-RUN npm install --no-cache
+RUN npm install
 
 # Uygulama kaynak kodunu kopyala ve uygulamayı derle
 COPY . .
