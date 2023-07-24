@@ -46,6 +46,10 @@
             "path": "/competencyframework"
           },
           {
+            "title": "Weights",
+            "path": "/weights"
+          },
+          {
             "title": "Users",
             "path": "/user",
             "childrens": [

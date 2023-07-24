@@ -15,7 +15,7 @@ function Competency() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        `http://127.0.0.1:8000/eva/EvaluateComptencyList/${id}`,
+        `https://admin.hirpo.net/eva/EvaluateComptencyList/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -31,6 +31,7 @@ function Competency() {
     };
     getData();
   }, []);
+  console.log(oneCompetency)
   return (
     <>
       <Navbar />

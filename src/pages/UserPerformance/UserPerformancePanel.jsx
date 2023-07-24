@@ -16,7 +16,7 @@ function UserPerformancePanel() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "http://127.0.0.1:8000/wizard/depposition/",
+        "https://admin.hirpo.net/wizard/depposition/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -47,7 +47,7 @@ function UserPerformancePanel() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "http://127.0.0.1:8000/eva/EmployeePerformance/",
+        "https://admin.hirpo.net/eva/EmployeePerformance/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -63,6 +63,7 @@ function UserPerformancePanel() {
     };
     getData();
   }, []);
+  console.log(performData)
 
   const [displayedTableIndices, setDisplayedTableIndices] = useState([]);
 let positionNumber = 1;
@@ -139,16 +140,43 @@ let positionNumber = 1;
                           <td>{a.total_score.sub}%</td>
                         </tr>
 
-                        {a.position?.positionskills.map((skill) => (
-                          <tr>
-                            <td>{skill.name}</td>
-                            <td>{Number(skill.weight)?.toFixed(1)}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        ))}
+                        {a.position?.positionlevel?.positionskills?.map(
+                          (skill) => (
+                            <tr>
+                              <td>{skill.name}</td>
+                              <td>{Number(skill.weight)?.toFixed(1)}</td>
+                              <td>
+                                {" "}
+                                {a.all_scores?.manager[skill?.name] /
+                                a.all_scores?.manager[skill?.name + "say"]
+                                  ? a.all_scores?.manager[skill?.name] /
+                                    a.all_scores?.manager[skill?.name + "say"]
+                                  : "-"}
+                              </td>
+                              <td>
+                                {a.all_scores?.cowerker[skill?.name] /
+                                a.all_scores?.cowerker[skill?.name + "say"]
+                                  ? a.all_scores?.cowerker[skill?.name] /
+                                    a.all_scores?.cowerker[skill?.name + "say"]
+                                  : "-"}
+                              </td>
+                              <td>
+                                {a.all_scores?.selfscore[skill?.name] /
+                                a.all_scores?.selfscore[skill?.name + "say"]
+                                  ? a.all_scores?.selfscore[skill?.name] /
+                                    a.all_scores?.selfscore[skill?.name + "say"]
+                                  : "-"}
+                              </td>
+                              <td>
+                                {a.all_scores?.sub[skill?.name] /
+                                a.all_scores?.sub[skill?.name + "say"]
+                                  ? a.all_scores?.sub[skill?.name] /
+                                    a.all_scores?.sub[skill?.name + "say"]
+                                  : "-"}
+                              </td>
+                            </tr>
+                          )
+                        )}
                       </tbody>
                     </table>
                   )}

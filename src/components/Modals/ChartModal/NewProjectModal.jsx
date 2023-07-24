@@ -44,7 +44,7 @@ function NewProjectModal({ setNewProjectModal,getData }) {
     const accessToken = window.localStorage.getItem("access_token");
 
     // Send non-empty input values in the request body
-    const data2 = await fetch("http://127.0.0.1:8000/wizard/CreateProject/", {
+    const data2 = await fetch("https://admin.hirpo.net/wizard/CreateProject/", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,

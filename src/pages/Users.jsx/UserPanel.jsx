@@ -18,7 +18,7 @@ function UserPanel() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "http://127.0.0.1:8000/wizard/depposition/",
+        "https://admin.hirpo.net/wizard/depposition/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ function UserPanel() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        `http://127.0.0.1:8000/wizard/EmployeeSingle/${id}`,
+        `https://admin.hirpo.net/wizard/EmployeeSingle/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -77,11 +77,12 @@ function UserPanel() {
     };
     getData();
   }, []);
+  console.log(user)
   const myuserid = user.user?.id;
   const saveNewPasswords = async (e) => {
     window.location.reload();
     const a = await fetch(
-      `http://127.0.0.1:8000/wizard/UserChange/${user.user.id}`,
+      `https://admin.hirpo.net/wizard/UserChange/${user.user.id}`,
       {
         method: "PUT",
         headers: {
@@ -99,7 +100,7 @@ function UserPanel() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "http://127.0.0.1:8000/wizard/EmployeeListView/",
+        "https://admin.hirpo.net/wizard/EmployeeListView/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -111,7 +112,7 @@ function UserPanel() {
     };
     getData();
   }, []);
-
+console.log(users)
 
   const [photoModal, setPhotoModal] = useState(false);
   let number = parseInt(Math.round(user.total?.total_score / 10));
@@ -152,11 +153,14 @@ function UserPanel() {
                   {user.first_name} {user.last_name}
                 </span>
               </p>
+
               <p>
-                Position name:<span>{user.positionName}</span>
+                Position level:{" "}
+                <span>{user.position?.positionlevel?.name}</span>
               </p>
               <p>
-                Position level: <span>{user.position?.name}</span>
+                Position :{" "}
+                <span>{user.position?.name}</span>
               </p>
               <p>
                 Report to:
@@ -166,9 +170,7 @@ function UserPanel() {
               </p>
               <p>
                 Department:
-                <span>
-                   {user.position?.department?.name}
-                </span>
+                <span>{user.position?.positionlevel?.department?.name}</span>
               </p>
             </div>
 

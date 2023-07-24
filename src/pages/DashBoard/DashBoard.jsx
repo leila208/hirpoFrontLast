@@ -20,7 +20,7 @@ function DashBoard() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "http://127.0.0.1:8000/wizard/HomePageView/",
+        "https://admin.hirpo.net/wizard/HomePageView/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -83,10 +83,6 @@ function DashBoard() {
               <div className="wrapper">
                 <div className="second-part">
                   {performed?.length ? (
-                    <div className="wrong">
-                      <span>The project has not been created yet</span>
-                    </div>
-                  ) : (
                     <>
                       <div className="second-one">
                         <div className="second-left">
@@ -142,12 +138,16 @@ function DashBoard() {
                       <div className={show === 0 ? "block" : "none"}></div>
                       <div className={show === 1 ? "block" : "none"}></div>
 
-                      <div className="charts">
+                      {/* <div className="charts">
                         {" "}
                         <Percentage percentage={percentage} />
                         <ChartNewComponent />
-                      </div>
+                      </div> */}
                     </>
+                  ) : (
+                    <div className="wrong">
+                      <span>The project has not been created yet</span>
+                    </div>
                   )}
 
                   <div className="performs">

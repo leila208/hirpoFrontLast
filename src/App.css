@@ -925,3 +925,6 @@ text-align: center;
   height: 20px;
   color: #fff;
 }
+.inputs svg{
+  width: 200px !important;
+}

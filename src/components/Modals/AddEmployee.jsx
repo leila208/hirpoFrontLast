@@ -20,7 +20,7 @@ function AddEmployee({
     email: "",
     phone: "",
     password: "",
-    positionName: "",
+   
   });
   let bodyData = {};
   if (addedEmployee.reportTo) {
@@ -76,6 +76,7 @@ function AddEmployee({
     };
     getData();
   }, []);
+  console.log(positions)
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -126,16 +127,7 @@ function AddEmployee({
               ))}
             </select>
           </div>
-          <div className="one-userinput">
-            <label htmlFor="positionName">Position name:</label>
-            <input
-              id="positionName"
-              type="text"
-              onChange={handleInput}
-              name="positionName"
-              value={addedEmployee.positionName}
-            />
-          </div>
+         
           <div className="one-userinput">
             <label htmlFor="user">Username:</label>
             <input

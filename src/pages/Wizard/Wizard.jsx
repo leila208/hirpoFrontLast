@@ -6,6 +6,7 @@ import { useState,useEffect} from "react";
 import "./wizard.css";
 import refreshToken from "../Auth/Refresh";
 function Wizard() {
+  // "lllllllllllll"
   refreshToken();
   const nav = useNavigate();
   const companyleader = window.localStorage.getItem("userId");
@@ -123,7 +124,7 @@ function Wizard() {
         }
     }
       const accessToken = window.localStorage.getItem("access_token");
-      const data2 = await fetch("http://127.0.0.1:8000/wizard/start", {
+      const data2 = await fetch("https://admin.hirpo.net/wizard/start", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -155,7 +156,7 @@ function Wizard() {
   const accessToken = window.localStorage.getItem("access_token");
   const [wizardModal, setWizardModal] = useState(false);
   const handleDelete = async () => {
-    const data2 = await fetch("http://127.0.0.1:8000/wizard/project_delete", {
+    const data2 = await fetch("https://admin.hirpo.net/wizard/project_delete", {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${accessToken}`,

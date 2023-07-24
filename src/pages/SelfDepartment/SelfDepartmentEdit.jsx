@@ -29,7 +29,7 @@ function SelfDepartmentEdit() {
   };
   const getData = async () => {
     const token = localStorage.getItem("access_token");
-    const response = await fetch("http://127.0.0.1:8000/wizard/DpForChart/", {
+    const response = await fetch("https://admin.hirpo.net/wizard/DpForChart/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -48,7 +48,7 @@ function SelfDepartmentEdit() {
   const handleSubmit = async (e) => {
 
     const token = localStorage.getItem("access_token");
-    const a = await fetch("http://127.0.0.1:8000/wizard/DepartmentUpdate/", {
+    const a = await fetch("https://admin.hirpo.net/wizard/DepartmentUpdate/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

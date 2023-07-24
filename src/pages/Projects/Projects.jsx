@@ -21,7 +21,7 @@ function Projects() {
   const [projectData, setProjectData] = useState([]);
   const getData = async () => {
     const token = localStorage.getItem("access_token");
-    const response = await fetch("http://127.0.0.1:8000/eva/ProjectsApiView/", {
+    const response = await fetch("https://admin.hirpo.net/eva/ProjectsApiView/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -39,7 +39,7 @@ function Projects() {
   const [frequencies, setFrequencies] = useState([]);
   const getFreData = async () => {
     const token = localStorage.getItem("access_token");
-    const response = await fetch("http://127.0.0.1:8000/eva/Frequencies/", {
+    const response = await fetch("https://admin.hirpo.net/eva/Frequencies/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

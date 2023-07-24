@@ -16,7 +16,7 @@ function ConfirmReset() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const a = await fetch(
-      `http://127.0.0.1:8000/account/ChangePasswordVerifyView/${id}`,
+      `https://admin.hirpo.net/account/ChangePasswordVerifyView/${id}`,
       {
         method: "PUT",
         headers: {

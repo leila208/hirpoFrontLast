@@ -33,6 +33,7 @@ import Projects from "./pages/Projects/Projects";
 import User from "./pages/Users.jsx/User";
 import UserProjects from "./pages/Users.jsx/UserProjects";
 // import Refresh from "./pages/Auth/Refresh";
+import Weights from "./pages/UserPerformance/Weights";
 function App() {
   function LoadingIndicator() {
     const location = useLocation();
@@ -62,64 +63,37 @@ function App() {
     <Router>
       <LoadingIndicator />
       <Routes>
-        <Route path="/" element={ <Login />} />
-        <Route path="/signup" element={ <Signup />} />
-        <Route path="/wizard" element={ <Wizard />} />
-        <Route path="/chart" element={ <Chart /> } />
-        <Route path="/dashboard" element={ <DashBoard /> } />
-        <Route
-          path="/verify/:userId"
-          element={ <Verify /> }
-        />
-        <Route
-          path="/sendresetcode"
-          element={ <SendResetCode /> }
-        />
-        <Route
-          path="/confirmreset/:id"
-          element={ <ConfirmReset /> }
-        />
-        <Route path="/matrix" element={ <Matrix /> } />
-   
-        <Route
-          path="/selfdepartmentedit"
-          element={<SelfDepartmentEdit /> }
-        />
-        <Route path="/selfchart" element={ <SelfChart /> } />
-        <Route
-          path="/userperformance"
-          element={<UserPerformance /> }
-        />
-        <Route
-          path="/userperformanceedit"
-          element={<UserPerformanceEdit /> }
-        />
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/wizard" element={<Wizard />} />
+        <Route path="/chart" element={<Chart />} />
+        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/verify/:userId" element={<Verify />} />
+        <Route path="/sendresetcode" element={<SendResetCode />} />
+        <Route path="/confirmreset/:id" element={<ConfirmReset />} />
+        <Route path="/matrix" element={<Matrix />} />
+
+        <Route path="/selfdepartmentedit" element={<SelfDepartmentEdit />} />
+        <Route path="/selfchart" element={<SelfChart />} />
+        <Route path="/userperformance" element={<UserPerformance />} />
+        <Route path="/userperformanceedit" element={<UserPerformanceEdit />} />
         <Route
           path="/userperformancepanel"
-          element={ <UserPerformancePanel /> }
-        />
-     
-        <Route
-          path="/competencyframework"
-          element={ <CompetencyFrameWork /> }
+          element={<UserPerformancePanel />}
         />
         <Route
-          path="/competency/:id"
-          element={ <Competency /> }
+          path="/weights"
+          element={<Weights />}
         />
-        <Route path="/selftodo" element={ <SelfTodo /> } />
-        <Route
-          path="/userpanel/:id"
-          element={ <UserPanel />}
-        />
-        <Route
-          path="/userproject"
-          element={ <UserProjects />}
-        />
-        <Route path="/projects" element={ <Projects /> } />
-        <Route path="/performedit/:id" element={ <PerformEdit /> } />
-        <Route path="/user" element={ <User /> } />
-       
+        <Route path="/competencyframework" element={<CompetencyFrameWork />} />
+        <Route path="/competency/:id" element={<Competency />} />
+        <Route path="/selftodo" element={<SelfTodo />} />
+        <Route path="/userpanel/:id" element={<UserPanel />} />
+        <Route path="/userproject" element={<UserProjects />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/performedit/:id" element={<PerformEdit />} />
+        <Route path="/user" element={<User />} />
+
         {/* <Route path="/refresh" element={<Refresh/>}/> */}
       </Routes>
     </Router>

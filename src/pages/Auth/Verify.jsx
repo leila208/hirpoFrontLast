@@ -11,7 +11,7 @@ const Verify = () => {
   const [activation_code, setActivation_code] = useState(0);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const a = await fetch(`http://127.0.0.1:8000/account/verify/${userId}`, {
+    const a = await fetch(`https://admin.hirpo.net/account/verify/${userId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

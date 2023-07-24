@@ -4,7 +4,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { Link, useNavigate } from "react-router-dom";
 import "./userperformance.css";
 import refreshToken from "../Auth/Refresh";
-function UserPerformance() {
+function Weights() {
   refreshToken();
   const nav = useNavigate();
   const [departaments, setDepartaments] = useState([]);
@@ -35,7 +35,7 @@ function UserPerformance() {
       prevSelectedPositions.includes(departmentposition)
         ? prevSelectedPositions.filter(
             (selectedPosition) => selectedPosition !== departmentposition
-          )  
+          )
         : [...prevSelectedPositions, departmentposition]
     );
   };
@@ -56,31 +56,26 @@ function UserPerformance() {
       // Okunan JSON veriyi kullanın
       if (a.status == 422) {
         document.getElementById(skillsToUpdate[0]?.id).value = rakam;
-        console.log(rakam)
+        console.log(rakam);
       }
     });
-    
 
-      getData()
-  
-    
+    getData();
   };
 
   const departament = departaments.map((departament) => departament);
 
   const handleSave = () => {
-  
-      toggleVisibility();
-  
+    toggleVisibility();
   };
- const [isVisible, setIsVisible] = useState(false);
-const toggleVisibility = () => {
-  setIsVisible(!isVisible);
-};
+  const [isVisible, setIsVisible] = useState(false);
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
 
-const getElementStyle = () => {
-  return isVisible ? { display: "block" } : { display: "none" };
-};
+  const getElementStyle = () => {
+    return isVisible ? { display: "block" } : { display: "none" };
+  };
   return (
     <>
       <Navbar />
@@ -89,9 +84,7 @@ const getElementStyle = () => {
           <Sidebar />
         </div>
         <div className="mine-table">
-          <div className="matrix-text">
-            <p>WIZARD - Weights Edit</p>
-          </div>
+        
           <div className="department-btnsBox">
             {departaments.map((departament) => (
               <button
@@ -275,9 +268,7 @@ const getElementStyle = () => {
             );
           })}
           <div className="chart-btns">
-            <Link to="/userperformance">
-              <button>Go back</button>
-            </Link>
+           
             <button
               style={
                 getElementStyle().display == "none"
@@ -297,10 +288,7 @@ const getElementStyle = () => {
             >
               Save
             </button>
-            <Link to="/dashboard">
-              {" "}
-              <button className="magic">Finish</button>
-            </Link>
+           
           </div>
         </div>
       </div>
@@ -308,4 +296,4 @@ const getElementStyle = () => {
   );
 }
 
-export default UserPerformance;
+export default Weights;
