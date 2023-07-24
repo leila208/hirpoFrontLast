@@ -13,8 +13,7 @@ RUN npm run build
 # İkinci aşama: Nginx ile uygulama yayınlama
 FROM nginx:1.21.3-alpine
 
-# Uygulama çıktı dosyalarını Nginx kök klasörüne kopyala
-COPY --from=builder /app/build /usr/share/nginx/html
+
 
 # Nginx yapılandırma dosyasını değiştir (isteğe bağlı)
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
