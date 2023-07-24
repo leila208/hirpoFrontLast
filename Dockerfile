@@ -1,22 +1,17 @@
 FROM node:18 as builder
-
+COPY . /app
 WORKDIR /app
 
-# Proje bağımlılıklarını kopyala ve bağımlılıkları yükle
-COPY package*.json ./
-RUN npm install
-
-# Uygulama kaynak kodunu kopyala ve uygulamayı derle
-COPY . .
-RUN npm run build
+RUN npm install && npm run build
 
 # İkinci aşama: Nginx ile uygulama yayınlama
 FROM nginx:1.21.3-alpine
 
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 COPY my_nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY . /usr/share/nginx/html
+# COPY . /usr/share/nginx/html
 #elave
 
 EXPOSE 80
