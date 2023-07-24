@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Proje bağımlılıklarını kopyala ve bağımlılıkları yükle
 COPY package*.json ./
-RUN npm install
+RUN npm install --no-cache
 
 # Uygulama kaynak kodunu kopyala ve uygulamayı derle
 COPY . .
