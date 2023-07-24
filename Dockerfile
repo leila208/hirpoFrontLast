@@ -9,7 +9,7 @@ FROM nginx:1.21.3-alpine
 
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# COPY my_nginx.conf /etc/nginx/conf.d/default.conf
+COPY my_nginx.conf /etc/nginx/conf.d/default.conf
 
 # COPY . /usr/share/nginx/html
 #elave
