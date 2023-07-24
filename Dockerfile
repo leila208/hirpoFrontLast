@@ -16,7 +16,8 @@ FROM nginx:1.21.3-alpine
 
 COPY my_nginx.conf /etc/nginx/conf.d/default.conf
 
-
+COPY . /usr/share/nginx/html
+#elave
 
 EXPOSE 80
 
