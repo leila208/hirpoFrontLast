@@ -14,10 +14,6 @@ RUN npm run build
 FROM nginx:1.21.3-alpine
 
 
-
-# Nginx yapılandırma dosyasını değiştir (isteğe bağlı)
-COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
-
 COPY my_nginx.conf /etc/nginx/conf.d/default.conf
 
 
