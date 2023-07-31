@@ -164,7 +164,7 @@ let positionNumber = 1;
                                 {a.all_scores?.selfscore[skill?.name] /
                                 a.all_scores?.selfscore[skill?.name + "say"]
                                   ? a.all_scores?.selfscore[skill?.name] /
-                                    a.all_scores?.selfscore[skill?.name + "say"]
+                                    a.all_scores?.selfscore[skill?.name + "say"]+'%'
                                   : "-"}
                               </td>
                               <td>

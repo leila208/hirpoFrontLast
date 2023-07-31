@@ -65,7 +65,11 @@ function ChartModalMember({
   return (
     <>
       {addChartModal && (
-        <AddChart getPositionData={getPositionData}  setAddChartModal={setAddChartModal} memberId={member.id} />
+        <AddChart
+          getPositionData={getPositionData}
+          setAddChartModal={setAddChartModal}
+          memberId={member.id}
+        />
       )}
       <li className={`member ${isBlur ? "blur-background" : ""}`}>
         {/* MEMBER IMAGE */}
@@ -104,12 +108,13 @@ function ChartModalMember({
                   {a.name}
                 </div>
                 <div className="delete-chart-add-user">
-                  <button  onClick={(e) => handleDeleteChart( e,a.id) }>&times;</button>
+                  <button onClick={(e) => handleDeleteChart(e, a.id)}>
+                    &times;
+                  </button>
                 </div>
               </div>
             ))}
 
-      
             <div className="addBtn" onClick={() => setAddChartModal(true)}>
               <button>Add</button>
             </div>
@@ -117,11 +122,8 @@ function ChartModalMember({
         </div>
         <div className="select">
           {" "}
-          <select
-            defaultValue={defaultV}
-            onChange={(e) => handleInput(e.target.value, member.id)}
-          >
-            <option value="DEFAULT" disabled>
+          <select onChange={(e) => handleInput(e.target.value, member.id)}>
+            <option value="default" >
               Select Report To
             </option>
             <option value="Ceo">Ceo</option>

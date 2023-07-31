@@ -66,6 +66,7 @@ function DashBoard() {
       setShowWarning(false);
     }
   }, [windowWidth]);
+  console.log(users)
   return (
     <>
       {showWarning ? (
@@ -82,7 +83,7 @@ function DashBoard() {
             <div className="second">
               <div className="wrapper">
                 <div className="second-part">
-                  {performed?.length ? (
+                  {users[0]?.id? (
                     <>
                       <div className="second-one">
                         <div className="second-left">

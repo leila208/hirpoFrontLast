@@ -54,7 +54,7 @@ function User() {
   const filtrByDep = filteredData.filter(
     (a) => a.position?.department?.name == "Sales"
   );
-
+console.log(filteredData,'l')
   return (
     <>
       <Navbar />
@@ -110,7 +110,7 @@ function User() {
                             </div>
                             <div className="user">
                               <p>
-                                Position:<span>{user.position?.name}</span>
+                                Position:<span>{user.is_systemadmin?'Ceo':user.position?.name}</span>
                               </p>
                             </div>
                           </div>
@@ -122,7 +122,7 @@ function User() {
                                 <div className="exclamation">
                                   {" "}
                                   <i className="fa-solid fa-exclamation"></i><div className="hoveredway">
-                                  <h3 style={{width:"300px"}}>Reported employee doesnt exist</h3>
+                                  <h3 style={{width:"50px",fontSize:"16px"}}>Reported employee doesnt exist</h3>
                                 </div>
                                 </div>
                                 

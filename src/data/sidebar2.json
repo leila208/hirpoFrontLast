@@ -1,12 +1,12 @@
 {"items":[
   {
     "title": "Dashboard",
-    "path": "/dashboard"
+    "path": ""
   },
   {
     "title": "Wizard",
 
-    "path": "/wizard"
+    "path": ""
   },
   {
     "title": "Company board",
@@ -21,12 +21,12 @@
               {
                 "icon": "fa-sharp fa-solid fa-chevron-right",
                 "title": "Departments",
-                "path": "/selfdepartmentedit"
+                "path": ""
               },
               {
                 "icon": "fa-sharp fa-solid fa-chevron-right",
                 "title": "Positions Chart",
-                "path": "/selfchart"
+                "path": ""
               }
             ]
           },
@@ -40,25 +40,25 @@
           },
           {
             "title": "Competency Framework",
-            "path": "/competencyframework"
+            "path": ""
           },
           {
             "title": "Weights",
-            "path": "/weights"
+            "path": ""
           },
           {
             "title": "Users",
-            "path": "/user",
+            "path": "",
             "childrens": [
               {
                 "icon": "fa-sharp fa-solid fa-chevron-right",
                 "title": "User performance panel",
-                "path": "/userperformancepanel"
+                "path": ""
               },
               {
                 "icon": "fa-sharp fa-solid fa-chevron-right",
                 "title": "Users",
-                "path": "/user"
+                "path": ""
               }
             ]
           },
@@ -96,7 +96,7 @@
   },
   {
     "title": "Projects",
-    "path": "/projects"
+    "path": ""
   },
   {
     "title": "Settings"

@@ -115,7 +115,7 @@ function AddEmployee({
               </option>
               {positions.map((position) => (
                 <option value={position.id} key={position.id}>
-                  {position.name}-{position.department?.name}
+                  {position.name}-{position.positionlevel?.department?.name}
                 </option>
               ))}
             </select>

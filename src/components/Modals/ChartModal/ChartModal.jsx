@@ -66,8 +66,11 @@ function ChartModal({ setChartModal ,getData}) {
   };
  
    const [reported, setReported] = useState({});
-   const handleInput = (e, reporter) => {
-     setReported({ ...reported, [reporter]: e });
+  const handleInput = (e, reporter) => {
+    console.log(e)
+    if (e != 'default' && e != 'Ceo') {
+      setReported({ ...reported, [reporter]: e });
+    }
    };
    
   return (
