@@ -35,6 +35,7 @@ function User() {
   
     getData();
   }, []);
+  console.log(users)
   const filteredData = users?.filter((item) =>
     item.first_name?.toLowerCase().includes(searchUser?.toLowerCase())
   );
@@ -96,23 +97,39 @@ function User() {
                     .map((user) => (
                       <>
                         <div className="user-body" key={user.id}>
-                          <div className="user">
-                            <p>
-                              User:
-                              <span>
-                                <Link to={`/userpanel/${user.id}`}>
-                                  {user.first_name} {user.last_name}
-                                </Link>
-                              </span>
-                            </p>
+                          <div className="userlefrr">
+                            <div className="user">
+                              <p>
+                                User:
+                                <span>
+                                  <Link to={`/userpanel/${user.id}`}>
+                                    {user.first_name} {user.last_name}
+                                  </Link>
+                                </span>
+                              </p>
+                            </div>
+                            <div className="user">
+                              <p>
+                                Position:<span>{user.position?.name}</span>
+                              </p>
+                            </div>
                           </div>
-                          <div className="user">
-                            <p>
-                              Position:<span>{user.position?.name}</span>
-                            </p>
+                          <div id="way">
+                            {user?.report_to ? (
+                              ""
+                            ) : (
+                              <>
+                                <div className="exclamation">
+                                  {" "}
+                                  <i className="fa-solid fa-exclamation"></i><div className="hoveredway">
+                                  <h3 style={{width:"300px"}}>Reported employee doesnt exist</h3>
+                                </div>
+                                </div>
+                                
+                              </>
+                            )}
                           </div>
                         </div>
-                        
                       </>
                     ))}
                 </div>

@@ -80,6 +80,11 @@ svg{
     width: 30vw !important;
   }
 }
+@media screen and (max-width: 768px){
+  .departament{
+    width: 40vw !important;
+  }
+}
 @media screen and (max-width: 600px) {
   /* dashboard start */
   .first-area{
@@ -197,3 +202,13 @@ svg{
 .part-body{
   margin: 10px 0 10px 10px;
 }}
+@media screen and (max-width: 425px){
+  .departament{
+    width: 50vw !important;
+  }
+}
+@media screen and (max-width:325px){
+  .departament{
+    width: 60vw !important;
+  }
+}

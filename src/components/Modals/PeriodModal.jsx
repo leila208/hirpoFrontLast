@@ -31,8 +31,7 @@ function PeriodModal({ setPeriodModal, projectId, getData}) {
       alert('Bu tarixi ehate eden period artiq movcuddur !!!')
     }
     
-    console.log(a,'aaaaaaaaaaaaaaayble')
-    console.log(periodData, 'perioddatabody')
+
     getData();
     setPeriodModal(false)
   };

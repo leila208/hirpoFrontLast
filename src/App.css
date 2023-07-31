@@ -284,7 +284,7 @@ th {
   border: 1px solid #296198;
   padding: 10px ;
   height: 30px;
-  width: 90%;
+  width: 50%;
   border-radius: 10px;
   font: normal 400 20px "Roboto";
   color: #296198;
@@ -420,7 +420,7 @@ th {
     z-index: 6859;
   position: fixed;
   height: 400px;
-  width: 25vw !important;
+
   background-color: rgb(251, 247, 247);
   position: fixed;
   display: flex;
@@ -762,8 +762,8 @@ th {
   align-items: center; */
 }
 .member .select {
-  width: 90%;
-  margin-left: 20%;
+  width: 50%;
+  
 }
 .member select {
   font-size: 15px;
@@ -841,7 +841,7 @@ th {
   font: normal 600 20px "Roboto";
 }
 .members select {
-  margin-top: 10px;
+     margin: 10px 15px;
 }
 .hidden {
   display: none;
@@ -910,6 +910,7 @@ text {
 text-align: center;
 }
 .newtextLis{
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -927,4 +928,44 @@ text-align: center;
 }
 .inputs svg{
   width: 200px !important;
+}
+.exclamation{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(30, 48, 80);
+}
+.userlefrr{
+  display: flex;
+}
+.user-body{
+  display: flex;
+  justify-content: space-between;
+}
+#way{
+  margin-right: 10px;
+}
+.hoveredway{
+  display: none;
+
+}
+.exclamation{
+  position: relative;
+}
+.exclamation:hover .hoveredway{
+  display: block;
+  color: #000;
+  position: absolute;
+
+  left: 45px;
+  bottom:5px;
+  
+}
+.u{
+  width: 110%;
 }

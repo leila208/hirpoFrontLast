@@ -49,7 +49,12 @@ function AddEmployee({
     })
       .then((a) => a.json())
       .then((data) => data);
-    setEmployeeModal(false);
+   console.log(a)
+    if (a.message != 'success') {
+      alert(Object.values(a))
+    }
+    else{setEmployeeModal(false);}
+  
    getData()
   };
 
@@ -94,6 +99,7 @@ function AddEmployee({
     };
     getData();
   }, []);
+  
   // const emptyInputs = Object.values(addedEmployee).some(
   //   (value) => value.trim() === ""
   // );
@@ -127,7 +133,7 @@ function AddEmployee({
               ))}
             </select>
           </div>
-         
+
           <div className="one-userinput">
             <label htmlFor="user">Username:</label>
             <input
@@ -175,6 +181,15 @@ function AddEmployee({
               type="text"
               onChange={handleInput}
               name="phone"
+              onKeyDown={(evt) =>
+                // Allow numeric characters (0-9) and necessary control keys (e.g., backspace, delete, arrows)
+                !/^[0-9]$/.test(evt.key) &&
+                !["Backspace", "Delete", "ArrowLeft", "ArrowRight"].includes(
+                  evt.key
+                )
+                  ? evt.preventDefault()
+                  : null
+              }
               value={addedEmployee.phone}
             />
           </div>

@@ -25,45 +25,17 @@ function FrequencyModal({ setFrequencyModal, period, getFreData }) {
     console.log(a);
 getFreData();
     setFrequencyModal(false);
+ 
   };
-
+   console.log(frequencyData);
+   console.log(period);
+console.log(
+period[0].filter((a) => a)[0]?.start_date
+    );
   return (
     <>
       <div className={`modalWrapper open`}>
         <div className="resetModal">
-          <div className="one-userinput">
-            <label htmlFor="start_date">Frequency Start Time</label>
-            <input
-              id="start_date"
-              placeholder="Start time"
-              type="date"
-              onChange={handleTime}
-              value={frequencyData.start_date}
-              name="start_date"
-            />
-          </div>
-          <div className="one-userinput">
-            <label htmlFor="end_date">Frequency End Time</label>
-            <input
-              id="end_date"
-              placeholder="End time"
-              type="date"
-              onChange={handleTime}
-              value={frequencyData.end_date}
-              name="end_date"
-            />
-          </div>
-          <div className="one-userinput">
-            <label htmlFor="freq_number">Frequency</label>
-            <input
-              id="freq_number"
-              placeholder="Frequency"
-              type="number"
-              onChange={handleTime}
-              value={frequencyData.freq_number}
-              name="freq_number"
-            />
-          </div>
           <div className="one-userinput">
             <select name="period" onChange={handleTime} required>
               <option value="" disabled selected>
@@ -79,6 +51,64 @@ getFreData();
               )}
             </select>
           </div>
+          <div className="one-userinput">
+            <label htmlFor="start_date">Frequency Start Time</label>
+            <input
+              id="start_date"
+              placeholder="Start time"
+              type="date"
+              onChange={handleTime}
+              min={
+                frequencyData?.period
+                  ? period[0]?.filter((a) => a.id == frequencyData?.period)[0]
+                      ?.start_date
+                  : ""
+              }
+              max={
+                frequencyData?.period
+                  ? period[0]?.filter((a) => a.id == frequencyData?.period)[0]
+                      ?.end_date
+                  : ""
+              }
+              value={frequencyData.start_date}
+              name="start_date"
+            />
+          </div>
+          <div className="one-userinput">
+            <label htmlFor="end_date">Frequency End Time</label>
+            <input
+              id="end_date"
+              placeholder="End time"
+              type="date"
+              onChange={handleTime}
+              value={frequencyData.end_date}
+              min={
+                frequencyData?.period
+                  ? period[0]?.filter((a) => a.id == frequencyData?.period)[0]
+                      ?.start_date
+                  : ""
+              }
+              max={
+                frequencyData?.period
+                  ? period[0]?.filter((a) => a.id == frequencyData?.period)[0]
+                      ?.end_date
+                  : ""
+              }
+              name="end_date"
+            />
+          </div>
+          <div className="one-userinput">
+            <label htmlFor="freq_number">Frequency</label>
+            <input
+              id="freq_number"
+              placeholder="Frequency"
+              type="number"
+              onChange={handleTime}
+              value={frequencyData.freq_number}
+              name="freq_number"
+            />
+          </div>
+
           <div className="resetmodal-btns">
             <button
               className="reset-cancel"
