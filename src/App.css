@@ -249,15 +249,20 @@ td {
   background-color: #d5dee7;
 }
 
-table td,
-th {
-  height: 10vh;
-  width: 220px;
+table td {
+
+  height: 5vh;
+}
+table th {
+
+  padding: 5px;
+  height: 2vh;
+  width: 120px !important;
 }
 
 th {
   font: normal 500 20px "Roboto";
-  line-height: 23px;
+  line-height: 30px;
   color: #fff;
 }
 
@@ -278,11 +283,11 @@ th {
   column-gap: 30px;
   justify-content: flex-end;
 }
-.addBtn button{
-   cursor: pointer;
-  margin:5px 0;
+.addBtn button {
+  cursor: pointer;
+  margin: 5px 0;
   border: 1px solid #296198;
-  padding: 10px ;
+  padding: 10px;
   height: 30px;
   width: 50%;
   border-radius: 10px;
@@ -320,7 +325,7 @@ th {
 .mine {
   height: 500px;
   overflow-y: scroll;
-  /* width: 100%; */
+  width: 50%;
   display: flex;
   flex-direction: column;
   margin: 5vh 0;
@@ -348,13 +353,13 @@ th {
 
 .department-btnsBox {
   border-radius: 5px;
-  margin-top: 5vh;
+  margin-top: 2vh;
 }
 
 .department-btns {
   color: #296198;
-  width: 180px;
-  height: 60px;
+  width: 150px;
+  height: 40px;
   background-color: #fff;
   cursor: pointer;
   border: none;
@@ -416,8 +421,8 @@ th {
   cursor: pointer;
   margin: 50px;
 }
-.test2{
-    z-index: 6859;
+.test2 {
+  z-index: 6859;
   position: fixed;
   height: 400px;
 
@@ -566,7 +571,7 @@ th {
   filter: blur(5px);
 }
 .mine3 {
-  width: 45vw;
+  width:50%;
   margin-top: 5vh;
 }
 .mine3 p {
@@ -578,7 +583,7 @@ th {
   margin-left: 5px;
 }
 .mine2 {
-  width: 45vw;
+  width: 50%;
   height: 100%;
   margin-top: 5vh;
 }
@@ -664,7 +669,8 @@ th {
   background-color: #296198;
   border-radius: 10px;
   border: none;
-  padding: 10px 20px;
+ width: 150px;
+ height: 40px;
   font: normal 400 20px "Roboto";
   color: #fff !important;
   margin-top: 10px;
@@ -763,7 +769,6 @@ th {
 }
 .member .select {
   width: 50%;
-  
 }
 .member select {
   font-size: 15px;
@@ -841,7 +846,7 @@ th {
   font: normal 600 20px "Roboto";
 }
 .members select {
-     margin: 10px 15px;
+  margin: 10px 15px;
 }
 .hidden {
   display: none;
@@ -904,12 +909,12 @@ text {
   border: 0.5px solid #3778b8;
 }
 #notice {
-  display: none; 
+  display: none;
 }
-.warned{
-text-align: center;
+.warned {
+  text-align: center;
 }
-.newtextLis{
+.newtextLis {
   width: 50%;
   display: flex;
   align-items: center;
@@ -926,10 +931,10 @@ text-align: center;
   height: 20px;
   color: #fff;
 }
-.inputs svg{
+.inputs svg {
   width: 200px !important;
 }
-.exclamation{
+.exclamation {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -940,32 +945,30 @@ text-align: center;
   border-radius: 50%;
   background-color: rgb(30, 48, 80);
 }
-.userlefrr{
+.userlefrr {
   display: flex;
 }
-.user-body{
+.user-body {
   display: flex;
   justify-content: space-between;
 }
-#way{
+#way {
   margin-right: 10px;
 }
-.hoveredway{
+.hoveredway {
   display: none;
-
 }
-.exclamation{
+.exclamation {
   position: relative;
 }
-.exclamation:hover .hoveredway{
+.exclamation:hover .hoveredway {
   display: block;
   color: #000;
   position: absolute;
 
   left: 45px;
-  bottom:5px;
-  
+  bottom: 5px;
 }
-.u{
+.u {
   width: 110%;
 }
