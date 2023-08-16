@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useRef } from "react";
-import userpanel from "../images/userpanel.png";
+// import userpanel from "../images/userpanel.png";
 import "./modals.css";
 function PhotoModal({ setPhotoModal,id }) {
   const [file, setFile] = useState(null);
