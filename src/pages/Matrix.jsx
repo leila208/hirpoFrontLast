@@ -161,7 +161,7 @@ function Matrix() {
       <hr />
       Competencies
     </th>,
-    ...filteredPositions.map((position) => <th key={position}>{position}</th>),
+    ...filteredPositions.map((position) => <th key={position} >{position}</th>),
   ];
 
   const accessToken = window.localStorage.getItem("access_token");
