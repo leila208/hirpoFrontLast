@@ -53,7 +53,6 @@ function Weights() {
       nav("/userperformance");
     }
     a.json().then((rakam) => {
-      // Okunan JSON veriyi kullanın
       if (a.status == 422) {
         document.getElementById(skillsToUpdate[0]?.id).value = rakam;
         console.log(rakam);
@@ -142,7 +141,7 @@ function Weights() {
                                   if (
                                     skill.position === departmentposition.id
                                   ) {
-                                    totalWeight += skill.weight || 0;
+                                    totalWeight += skill.weight || 0.0;
                                   }
                                 });
                                 console.log(totalWeight);
@@ -162,7 +161,7 @@ function Weights() {
                                             <input
                                               id={skill.id}
                                               className="userPinput"
-                                              type="number"
+                                              type="text"
                                               onKeyDown={(evt) =>
                                                 ["e", "E", "+", "-"].includes(
                                                   evt.key
@@ -177,12 +176,16 @@ function Weights() {
                                                 if (value > 100) {
                                                   value = 100;
                                                 }
+                                                
+                                                if (totalWeight >= 100) {
+                                                  value = "0";
+                                                }
 
                                                 if (
                                                   isNaN(value) ||
                                                   value === ""
                                                 ) {
-                                                  value = 0;
+                                                  value = "0";
                                                 }
 
                                                 const skillsToUpdate = [
@@ -194,7 +197,7 @@ function Weights() {
                                                 updateWeight(skillsToUpdate);
                                               }}
                                               disabled={
-                                                totalWeight === 100 &&
+                                                totalWeight == 100 &&
                                                 !skill.weight
                                               }
                                               min={0}
@@ -250,15 +253,6 @@ function Weights() {
                                   </tr>
                                 ))}
                             </tbody>
-                            {/* <tbody>
-                              {skills?.map((skill) => (
-                                <tr key={skill.id}>
-                                  <td>{skill.name}</td>
-                                  <td>{Number(skill.weight)?.toFixed(1)}</td>
-                                  <td>{skill.type}</td>
-                                </tr>
-                              ))}
-                            </tbody> */}
                           </>
                         )}
                       </table>
