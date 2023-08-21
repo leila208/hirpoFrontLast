@@ -67,6 +67,10 @@ function Chart() {
       .then((result) => result)
       .then((response) => response.json());
   };
+
+
+
+
   return (
     <>
       {chartModal && <ChartModal  setDepartaments={setDepartaments} getData={getData} setChartModal={setChartModal} />}

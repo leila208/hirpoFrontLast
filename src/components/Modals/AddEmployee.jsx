@@ -2,11 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import refreshToken from "../../pages/Auth/Refresh";
 import "./modals.css";
-function AddEmployee({
-  employeeModal,
-  setEmployeeModal,
-  getData
-}) {
+function AddEmployee({ employeeModal, setEmployeeModal, getData }) {
   refreshToken();
   const [industry, setIndustry] = useState("");
   const [industryError, setIndustryError] = useState("");
@@ -20,7 +16,6 @@ function AddEmployee({
     email: "",
     phone: "",
     password: "",
-   
   });
   let bodyData = {};
   if (addedEmployee.reportTo) {
@@ -49,13 +44,14 @@ function AddEmployee({
     })
       .then((a) => a.json())
       .then((data) => data);
-   console.log(a)
-    if (a.message != 'success') {
-      alert(Object.values(a))
+    console.log(a);
+    if (a.message != "success") {
+      alert(Object.values(a));
+    } else {
+      setEmployeeModal(false);
     }
-    else{setEmployeeModal(false);}
-  
-   getData()
+
+    getData();
   };
 
   const [positions, setPositions] = useState([]);
@@ -71,17 +67,16 @@ function AddEmployee({
           },
         }
       );
-       if (response.status === 401) {
-         nav("/");
-       } else {
-             const position = await response.json();
-      setPositions(position);
-       }
-  
+      if (response.status === 401) {
+        nav("/");
+      } else {
+        const position = await response.json();
+        setPositions(position);
+      }
     };
     getData();
   }, []);
-  console.log(positions)
+  console.log(positions);
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -99,10 +94,7 @@ function AddEmployee({
     };
     getData();
   }, []);
-  
-  // const emptyInputs = Object.values(addedEmployee).some(
-  //   (value) => value.trim() === ""
-  // );
+
   return (
     <div className={`modalWrapper open`}>
       <div className="employeeModal">
@@ -182,7 +174,6 @@ function AddEmployee({
               onChange={handleInput}
               name="phone"
               onKeyDown={(evt) =>
-                // Allow numeric characters (0-9) and necessary control keys (e.g., backspace, delete, arrows)
                 !/^[0-9]$/.test(evt.key) &&
                 !["Backspace", "Delete", "ArrowLeft", "ArrowRight"].includes(
                   evt.key

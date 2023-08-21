@@ -10,7 +10,7 @@ import AddChart from "../AddChart";
 function ChartModal({ setChartModal ,getData}) {
   refreshToken();
   const nav = useNavigate();
-  const [addMemberModal, setAddMemberModal] = useState(false);
+  const [addMemberModal, setAddMemberModal] = useState([]);
   const [departaments, setDepartaments] = useState([]);
   const [selectedDepartamentId, setSelectedDepartamentId] = useState(null);
   const [selecteds, setSelecteds] = useState([]);
@@ -101,8 +101,8 @@ function ChartModal({ setChartModal ,getData}) {
                         setObjects2={setObjects2}
                         objects2={objects2}
                         setChartModal={setChartModal}
-                        handleClick={() => {
-                          setAddMemberModal(true);
+                        handleClick={()=>{
+                          setAddMemberModal(a?.departmentpositions);
                           setSelectedDepartamentId(a.id);
                         }}
                       />
@@ -133,6 +133,7 @@ function ChartModal({ setChartModal ,getData}) {
           setSelectedDepartamentId={setSelectedDepartamentId}
           selectedDepartamentId={selectedDepartamentId}
           setChartModal={setChartModal}
+          addMemberModal={addMemberModal}
           setAddMemberModal={setAddMemberModal}
         />
       )}

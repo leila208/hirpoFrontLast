@@ -401,9 +401,21 @@ th {
   background-color: #b00f0f;
   border-radius: 5px;
   cursor: pointer;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   color: #fff;
+  font-size: 10px;
+}
+.editbtn button {
+  margin-left: 6px;
+  border: none;
+  background-color: #2ab00f;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  color: #fff;
+  font-size: 10px;
 }
 
 .add-member {
@@ -787,20 +799,28 @@ th {
   position: absolute;
   bottom: 15px;
   left: 10px;
-  height: 40px;
-  width: 170px;
+  height: auto;
+  width: auto;
+  min-width: 200px;
+  text-align: left;
+  padding: 10px;
   border: 1px solid #b4bade;
   font: normal 600 16px "Roboto";
   background-color: white;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   z-index: 1231313;
 }
+.hidden hr {
+  margin: 10px 0;
+}
+
 .hiddenText {
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: start;
 }
+
 .wrong {
   width: 100%;
   display: flex;
@@ -809,6 +829,7 @@ th {
   font: normal 400 60px "Roboto";
   height: 600px;
 }
+
 .charttt {
   display: flex;
   justify-content: center;

@@ -51,7 +51,7 @@ function ModalDepartament({
             />
           ))}
         </ul>
-        <button className="add-member" onClick={handleClick}>
+        <button className="add-member" onClick={(sortedData)=>handleClick(sortedData)}>
           +
         </button>
       </ul>

@@ -32,14 +32,11 @@ import UserPanel from "./pages/Users.jsx/UserPanel";
 import Projects from "./pages/Projects/Projects";
 import User from "./pages/Users.jsx/User";
 import UserProjects from "./pages/Users.jsx/UserProjects";
-// import Refresh from "./pages/Auth/Refresh";
 import Weights from "./pages/UserPerformance/Weights";
 function App() {
   function LoadingIndicator() {
     const location = useLocation();
     const [isLoading, setIsLoading] = useState(false);
-    // get acces token from localstorage
-
     useEffect(() => {
       setIsLoading(true);
 
@@ -94,7 +91,6 @@ function App() {
         <Route path="/performedit/:id" element={<PerformEdit />} />
         <Route path="/user" element={<User />} />
 
-        {/* <Route path="/refresh" element={<Refresh/>}/> */}
       </Routes>
     </Router>
   );

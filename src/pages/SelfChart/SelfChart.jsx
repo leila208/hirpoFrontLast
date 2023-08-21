@@ -50,6 +50,23 @@ const SelfChart = () => {
     setSingle(departaments.length <= 2);
   }, [departaments]);
   const [chartModal, setChartModal] = useState(false);
+
+  // const departament = departaments.map(a, b)
+
+//   const priority = {
+//     Junior: 5,
+//     Manager: 2,
+//     Senior: 3,
+//     Specialist: 4,
+//     "Top manager": 1,
+//     Ceo:6
+//   };
+//   const sortedData = departament?.departmentpositions.sort(
+//     (a, b) => priority[a.name] - priority[b.name]
+// );
+
+// console.log(sortedData);
+
   return (
     <>
       {chartModal && (
@@ -83,13 +100,7 @@ const SelfChart = () => {
               </li>
             </ul>
             <div className="chart-btns">
-              {/* <Link to="/wizard">
-                <button onClick={handleDelete}>Go back</button>
-              </Link> */}
               <button onClick={() => setChartModal(true)}>Edit</button>
-              {/* <Link to="/matrix">
-                <button className="magic">Continue</button>
-              </Link> */}
             </div>
           </div>
         </div>

@@ -1,10 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
-function AddChart({ setAddChartModal, memberId,getPositionData }) {
-    const [chartName, setChartName] = useState({ name: "", positionlevel: memberId });
-      const handleAddChart = (e) => {
-        setChartName({ ...chartName, [e.target.name]: e.target.value });
-      };
+function AddChart({
+  setAddChartModal,
+  memberId,
+  getPositionData,
+  reports,
+  handleInput,
+}) {
+  const [chartName, setChartName] = useState({
+    name: "",
+    positionlevel: memberId,
+    reportto: "",
+  });
+  const handleAddChart = (e) => {
+    setChartName({ ...chartName, [e.target.name]: e.target.value });
+  };
   const handleAdd = async (e) => {
     e.preventDefault();
 
@@ -22,34 +32,44 @@ function AddChart({ setAddChartModal, memberId,getPositionData }) {
       alert("This position has already been added");
     }
     setAddChartModal(false);
-getPositionData();
+    getPositionData();
   };
   return (
     <div className={`modelWrapper open`}>
-     
-        <div className="test2">
-          <label htmlFor="name">Add new name:</label>
-          <input
-            placeholder="Add new name"
-            name="name"
-            onChange={handleAddChart}
-            value={chartName.name}
-            required
-          />
-          <button
-            className="cancel-new"
-            onClick={() => {
-              setAddChartModal(false);
-            }}
-          >
-            Cancel
-          </button>
-          <button className="add-new" onClick={handleAdd}>
-            Add
-          </button>
+      <div className="test2">
+        <label htmlFor="name">Edit Position</label>
+        <input
+          placeholder="Edit name"
+          name="name"
+          onChange={handleAddChart}
+          value={chartName.name}
+          required
+        />
+        <div className="select">
+          {" "}
+          <select onChange={(e) => handleInput(e.target.value, memberId)}>
+            <option value="default">Select Report To</option>
+            <option value="Ceo">Ceo</option>
+            {reports.map((a) => (
+              <option value={a.id} key={a.id}>
+                {a.name}
+              </option>
+            ))}
+          </select>
         </div>
+        <button
+          className="cancel-new"
+          onClick={() => {
+            setAddChartModal(false);
+          }}
+        >
+          Cancel
+        </button>
+        <button className="add-new" onClick={handleAdd}>
+          Save
+        </button>
       </div>
-    
+    </div>
   );
 }
 

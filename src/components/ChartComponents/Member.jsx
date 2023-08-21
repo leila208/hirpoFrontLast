@@ -57,13 +57,17 @@ function Member({ member, report }) {
             <img src={description} />
             <div className="hidden">
               <div className="hiddenText"> Report to: {report}</div>
+              <hr />
+              <div className="hiddenText"> Position level: {report}</div>
+              <hr />
+              <div className="hiddenText"> Description: {report}</div>
             </div>
           </div>
         </div>
         <div className="texting">
-          <button onClick={visibility} className="showing">
+          {/* <button onClick={visibility} className="showing">
             <i className={`fa-solid fa-caret-${visible ? "down" : "up"}`}></i>
-          </button>
+          </button> */}
 
           <div className="newText" style={getStyle()}>
             {member.positions.map((a) => (

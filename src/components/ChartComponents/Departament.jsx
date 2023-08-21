@@ -13,6 +13,8 @@ function Departament({ departament }) {
     (a, b) => priority[a.name] - priority[b.name]
   );
 
+  console.log(sortedData)
+  
   return (
     <>
       <ul className="departament">
@@ -21,6 +23,7 @@ function Departament({ departament }) {
           {sortedData?.map((a, b) => (
             <Member
               report={sortedData.filter((c) => c.id === a.report_to)[0]?.name}
+              positionLevel={sortedData.filter((c) => c.id === a.report_to)[0]?.name}
               member={a}
               key={b}
             />
