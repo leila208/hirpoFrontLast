@@ -70,7 +70,7 @@ function Member({ member, report }) {
           </button> */}
 
           <div className="newText" style={getStyle()}>
-            {member.positions.map((a) => (
+            {member.positions?.map((a) => (
               <div className="newtextLis">
                 <div
                   className="textLi"

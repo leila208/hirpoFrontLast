@@ -96,7 +96,7 @@ function ChartModalMember({
         </div>
         <div className="texting">
           <div className="newText" style={getStyle()}>
-            {member.positions.map((a) => (
+            {member.positions?.map((a) => (
               <div className="newtextLis">
                 <div
                   className="textLi"
