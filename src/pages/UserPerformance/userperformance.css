@@ -15,8 +15,8 @@
   align-items: center;
 }
 .performUserText:not(:last-of-type) {
-  width: 30%;
- border-right: 2px solid #46729A;
+  margin: 10px;
+
 }
 .performUserText p {
   font: normal 700 20px "Roboto";
@@ -39,6 +39,7 @@
 .performanceTableContainer{
     display: flex;
     flex-direction: column;
+    gap: 30px;
 }
 .performanceTable:not(:first-of-type){
   margin-top:80px;

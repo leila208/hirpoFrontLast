@@ -7,6 +7,7 @@
   text-decoration: none;
   list-style: none;
 }
+
 /* for all pages and components */
 ::selection {
   color: #fff;
@@ -250,11 +251,9 @@ td {
 }
 
 table td {
-
   height: 5vh;
 }
 table th {
-
   padding: 5px;
   height: 2vh;
   width: 120px !important;
@@ -321,6 +320,17 @@ th {
   color: #296198;
   display: flex;
   align-items: center;
+}
+.textArea {
+  padding: 10px;
+  outline: none;
+  color: #757575;
+  background: #fff;
+  border: 1px solid #3c87cc;
+  border-radius: 10px;
+  font: normal 400 20px "Roboto";
+  width: 100%;
+  min-height: 50px;
 }
 .mine {
   height: 500px;
@@ -506,6 +516,11 @@ th {
   align-items: center;
   justify-content: center;
 }
+.background {
+  width: 100vw;
+  height: 600px;
+  background-color: #ededed !important;
+}
 
 /* chartmodal */
 .test2 input {
@@ -583,7 +598,7 @@ th {
   filter: blur(5px);
 }
 .mine3 {
-  width:50%;
+  width: 50%;
   margin-top: 5vh;
 }
 .mine3 p {
@@ -681,8 +696,8 @@ th {
   background-color: #296198;
   border-radius: 10px;
   border: none;
- width: 150px;
- height: 40px;
+  width: 150px;
+  height: 40px;
   font: normal 400 20px "Roboto";
   color: #fff !important;
   margin-top: 10px;
@@ -773,7 +788,7 @@ th {
   height: 50px;
   display: flex;
   align-items: center;
-  width: 95%;
+  width: 100%;
   box-shadow: 1px 1px 10px 0px #0000001a;
   /* display: flex;
   width: 100%;
@@ -992,4 +1007,18 @@ text {
 }
 .u {
   width: 110%;
+}
+#eva {
+  margin-right: 60px;
+}
+#mod {
+  cursor: pointer;
+  background-color: #296198;
+  border-radius: 10px;
+  border: none;
+
+  height: 30px;
+  font: normal 400 20px "Roboto";
+  color: #fff !important;
+  margin-top: 10px;
 }

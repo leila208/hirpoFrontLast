@@ -20,6 +20,7 @@ function AddMemberModal({
   const [newMemberName, setNewMemberName] = useState("");
   const [reportsTo, setReportsTo] = useState();
   const [positionLevel, setPositionLevel] = useState();
+  const [desc, setDesc] = useState();
 
   const [selects, setSelects] = useState({
     department: "",
@@ -51,6 +52,7 @@ function AddMemberModal({
           name: newMemberName,
           positionLevel: positionLevel,
           reports: reportsTo,
+          description: desc
         }),
       }
     )
@@ -102,6 +104,11 @@ function AddMemberModal({
               <option value="Manager">Manager</option>
             </select>
 
+            <textarea
+              className="textArea"
+              placeholder="Enter description"
+              onChange={(e) => setDesc(e.target.value)}
+            />
             <button
               className="cancel-new"
               onClick={() => {

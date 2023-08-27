@@ -107,7 +107,7 @@ function AddEmployee({ employeeModal, setEmployeeModal, getData }) {
               </option>
               {positions.map((position) => (
                 <option value={position.id} key={position.id}>
-                  {position.name}-{position.positionlevel?.department?.name}
+                  {position.name}-{position.department?.name}
                 </option>
               ))}
             </select>

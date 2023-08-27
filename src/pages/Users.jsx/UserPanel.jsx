@@ -170,7 +170,7 @@ console.log(users)
               </p>
               <p>
                 Department:
-                <span>{user.position?.positionlevel?.department?.name}</span>
+                <span>{user.position?.department?.name}</span>
               </p>
             </div>
 

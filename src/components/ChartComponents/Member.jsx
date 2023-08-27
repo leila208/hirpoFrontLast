@@ -56,19 +56,27 @@ function Member({ member, report }) {
           <div className="description-image">
             <img src={description} />
             <div className="hidden">
-              <div className="hiddenText"> Report to: {report}</div>
+              <div className="hiddenText">
+                {" "}
+                Report to:{" "}
+                {member?.report_to_ceo == true
+                  ? 'Ceo'
+                  : member?.report_tos.name}
+              </div>
               <hr />
-              <div className="hiddenText"> Position level: {report}</div>
+              <div className="hiddenText">
+                {" "}
+                Position level: {member?.positionlevel}
+              </div>
               <hr />
-              <div className="hiddenText"> Description: {report}</div>
+              <div className="hiddenText">
+                {" "}
+                Description: {member?.description}
+              </div>
             </div>
           </div>
         </div>
         <div className="texting">
-          {/* <button onClick={visibility} className="showing">
-            <i className={`fa-solid fa-caret-${visible ? "down" : "up"}`}></i>
-          </button> */}
-
           <div className="newText" style={getStyle()}>
             {member.positions?.map((a) => (
               <div className="newtextLis">
@@ -78,11 +86,8 @@ function Member({ member, report }) {
                 >
                   {a.name}
                 </div>
-                
               </div>
             ))}
-
-          
           </div>
         </div>
       </li>

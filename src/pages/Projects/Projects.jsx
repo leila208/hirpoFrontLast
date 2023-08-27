@@ -48,7 +48,6 @@ function Projects() {
     setFrequencies(data);
   };
   useEffect(() => {
-    
     getFreData();
   }, []);
 
@@ -59,14 +58,45 @@ function Projects() {
     };
   });
 
-  const period = projects.map((obj) => obj.period.map((period) => period));
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
 
+  const currentDate = `${year}-${month}-${day}`;
+
+  const period = projects.map((obj) => obj.period.map((period) => period));
+  // console.log(period);
+  // console.log(currentDate);
+  const [toggleModal, setToggleModal] = useState(false);
   const handleToggleSwitch = (projectId) => {
     setOpenProjectId(projectId === openProjectId ? null : projectId);
+  };
+  const handleToggle = async (is_active, id, e) => {
+    setToggleModal(true);
+  };
+  const handleSend = async (is_active, id, e) => {
+    e.preventDefault();
+    const a = await fetch("https://admin.hirpo.net/eva/FreqSetActive/", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        id: id,
+        is_active: !is_active,
+      }),
+    })
+      .then((a) => a)
+      .then((data) => data);
+    getFreData();
+    setToggleModal(false);
   };
   const [periodModal, setPeriodModal] = useState(false);
   const [frequencyModal, setFrequencyModal] = useState(false);
   const [newProjectModal, setNewProjectModal] = useState(false);
+  // console.log(toggleModal);
   return (
     <>
       <Navbar />
@@ -104,6 +134,7 @@ function Projects() {
                 projectId={projectId}
               />
             )}
+           
 
             {projects.map((project) => (
               <div key={project?.id}>
@@ -150,10 +181,10 @@ function Projects() {
                                 <div className="period">
                                   <div className="period-left">
                                     <div>
-                                      <img
+                                      {/* <img
                                         src={periodIcon}
                                         className="periodIcon"
-                                      />
+                                      /> */}
                                       <p>
                                         {period.period_number}. Period{" "}
                                         {period.period_number} :
@@ -194,34 +225,103 @@ function Projects() {
                         <div className="part-body">
                           <div className="period-head-text">
                             <p>Assessment time</p>
+
+                            <p>Start Now</p>
                           </div>
 
                           {frequencies?.map((period) => {
+                            console.log(period);
                             return (
-                              <div className="periods">
-                                <hr className="periodLine" />
-                                <div className="period">
-                                  <div className="period-left">
-                                    <div>
-                                      <img
-                                        src={periodIcon}
-                                        className="periodIcon"
-                                      />
-                                      <p>
-                                        {period.period?.period_number}. Period
-                                        {period.period?.period_number} /F
-                                        {period.freq_number} :
-                                      </p>
+                              <>
+                                {toggleModal && (
+                                  <div className={`modelWrapper open`}>
+                                    <div className="addMemberModal">
+                                      <div className="test">
+                                        <div className="editDepartmentBtns">
+                                          <span id="wizard-reminder">
+                                            Do you confirm the start of
+                                            evaluation?
+                                          </span>
+                                          <div className="wizard-modal-btns">
+                                            <button
+                                              onClick={() =>
+                                                setToggleModal(false)
+                                              }
+                                              className="cancel-new"
+                                            >
+                                              Cancel
+                                            </button>
 
-                                      <span>
-                                        {period.start_date} {""}{" "}
-                                        {period.end_date}
-                                      </span>
+                                            <button
+                                              onClick={(e) =>
+                                                handleSend(
+                                                  period.is_active,
+                                                  period.id,
+                                                  e
+                                                )
+                                              }
+                                              id="create"
+                                            >
+                                              Yes
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
-                                  <div className="period-right"></div>
+                                )}
+                                <div className="periods">
+                                  <hr className="periodLine" />
+                                  <div className="period">
+                                    <div className="period-left">
+                                      <div>
+                                        {/* <img
+                                        src={periodIcon}
+                                        className="periodIcon"
+                                      /> */}
+                                        <p>
+                                          {period.period?.period_number}. Period
+                                          {period.period?.period_number} /F
+                                          {period.freq_number} :
+                                        </p>
+
+                                        <span>
+                                          {period.start_date} {""}{" "}
+                                          {period.end_date}
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <div className="period-right">
+                                      {!period.is_active &&
+                                      period.evalution_date > currentDate ? (
+                                        <h2 id="eva">
+                                          {period.evalution_date}
+                                        </h2>
+                                      ) : (
+                                        ""
+                                      )}
+
+                                      <label className="toggle-switch">
+                                        <input
+                                          type="checkbox"
+                                          checked={!period.is_active && period.evalution_date>currentDate }
+                                          onClick={(e) =>
+                                            !period.is_active &&
+                                            handleToggle(
+                                              period.is_active,
+                                              period.id,
+                                              e
+                                            )
+                                          }
+                                        />{" "}
+                                        <div className="toggle-switch-background">
+                                          <div className="toggle-switch-handle"></div>
+                                        </div>
+                                      </label>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
+                              </>
                             );
                           })}
                         </div>

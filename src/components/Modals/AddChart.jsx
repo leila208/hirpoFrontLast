@@ -3,28 +3,29 @@ import { useState, useEffect } from "react";
 function AddChart({
   setAddChartModal,
   memberId,
+  memberName,
   getPositionData,
   reports,
-  handleInput,
+  memberDesc,
 }) {
-  const [chartName, setChartName] = useState({
-    name: "",
-    positionlevel: memberId,
-    reportto: "",
-  });
-  const handleAddChart = (e) => {
-    setChartName({ ...chartName, [e.target.name]: e.target.value });
-  };
+  const [reportto, setReportto] = useState();
+  const [chartName, setChartName] = useState();
+  const [desc, setDesc] = useState();
+
   const handleAdd = async (e) => {
     e.preventDefault();
-
     const a = await fetch("https://admin.hirpo.net/wizard/PositionAddView/", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(chartName),
+      body: JSON.stringify({
+        name: chartName,
+        positionlevel: memberId,
+        reportto: reportto,
+        description: desc
+      }),
     })
       .then((a) => a)
       .then((data) => data);
@@ -34,20 +35,19 @@ function AddChart({
     setAddChartModal(false);
     getPositionData();
   };
+  console.log(memberId);
   return (
     <div className={`modelWrapper open`}>
       <div className="test2">
         <label htmlFor="name">Edit Position</label>
         <input
-          placeholder="Edit name"
-          name="name"
-          onChange={handleAddChart}
-          value={chartName.name}
+          placeholder={memberName}
+          onChange={(e) => setChartName(e.target.value)}
           required
         />
         <div className="select">
           {" "}
-          <select onChange={(e) => handleInput(e.target.value, memberId)}>
+          <select onChange={(e) => setReportto(e.target.value)} required>
             <option value="default">Select Report To</option>
             <option value="Ceo">Ceo</option>
             {reports.map((a) => (
@@ -57,6 +57,12 @@ function AddChart({
             ))}
           </select>
         </div>
+
+        <textarea
+          className="textArea"
+          placeholder={memberDesc == null ? "Enter description" : memberDesc}
+          onChange={(e) => setDesc(e.target.value)}
+        />
         <button
           className="cancel-new"
           onClick={() => {

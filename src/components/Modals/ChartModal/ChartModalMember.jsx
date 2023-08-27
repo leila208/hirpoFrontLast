@@ -58,6 +58,8 @@ function ChartModalMember({
     getPositionData();
   };
 
+  console.log(member);
+
   return (
     <>
       {addChartModal && (
@@ -66,6 +68,8 @@ function ChartModalMember({
           setAddChartModal={setAddChartModal}
           memberId={member.id}
           reports={reports}
+          memberName={member?.name}
+          memberDesc={member?.description}
           handleInput={handleInput}
         />
       )}
@@ -113,7 +117,7 @@ function ChartModalMember({
             ))}
           </div>
         </div>
-        <div className="select">
+        {/* <div className="select">
           {" "}
           <select onChange={(e) => handleInput(e.target.value, member.id)}>
             <option value="default">Select Report To</option>
@@ -124,7 +128,7 @@ function ChartModalMember({
               </option>
             ))}
           </select>
-        </div>
+        </div> */}
       </li>
     </>
   );

@@ -81,7 +81,7 @@
   display: flex;
   justify-content: space-between;
   /* column-gap: 10px; */
-  width: 100%;
+  /* width: 100%; */
   max-width: 29%;
   /* border: 1px solid red; */
 }

@@ -67,9 +67,7 @@ function PerformEdit() {
         </div>
         <div className="grab">
           <div className="mine-table">
-            <div className="matrix-text">
-              <p>WIZARD - User performance panel Edit</p>
-            </div>
+           
             <div className="mine">
               <table className="skill-tds">
                 <thead>
@@ -101,7 +99,7 @@ function PerformEdit() {
                           }
                           placeholder={
                             skill.price == null
-                              ? `max value: ${skill.skill?.norm}`
+                              ? ` ${skill.skill?.norm}`
                               : skill.skill?.norm
                           }
                           defaultValue={skill.price}

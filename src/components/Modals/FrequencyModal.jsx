@@ -7,6 +7,7 @@ function FrequencyModal({ setFrequencyModal, period, getFreData }) {
     end_date: "",
     freq_number: "",
     period: "",
+    evalution_date: "",
   });
   const handleTime = (e) => {
     setFrequencyData({ ...frequencyData, [e.target.name]: e.target.value });
@@ -106,6 +107,19 @@ period[0].filter((a) => a)[0]?.start_date
               onChange={handleTime}
               value={frequencyData.freq_number}
               name="freq_number"
+            />
+          </div>
+          <div className="one-userinput">
+            <label htmlFor="time">Evalution starting date</label>
+            <input
+              id="evalution_date"
+              placeholder="evalution_date"
+              type="date"
+              onChange={handleTime}
+              value={frequencyData.evalution_date}
+              name="evalution_date"
+              min={frequencyData?.start_date}
+              max={frequencyData?.end_date}
             />
           </div>
 

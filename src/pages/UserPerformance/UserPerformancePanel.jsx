@@ -63,10 +63,12 @@ function UserPerformancePanel() {
     };
     getData();
   }, []);
-  console.log(performData)
+  console.log(performData,'--------------')
 
   const [displayedTableIndices, setDisplayedTableIndices] = useState([]);
-let positionNumber = 1;
+  let positionNumber = 1;
+  console.log(performData.map((a) => a))
+  const [changeModal,setChangeModal] = useState(false)
   return (
     <>
       <Navbar />
@@ -76,11 +78,49 @@ let positionNumber = 1;
         </div>
         <div className="mine-performance-table">
           <div className="mine2">
+            {changeModal && (
+              <div className={`modelWrapper open`}>
+                <div className="addMemberModal">
+                 
+                  <div className="resetModal background">
+                    <div className="one-userinput">
+                      <label></label>
+                      <input />
+                    </div>
+                    <div className="one-userinput">
+                      <label></label>
+                      <input />
+                    </div>
+                    <div className="one-userinput">
+                      <label></label>
+                      <input />
+                    </div>
+                    <div className="one-userinput">
+                      <label></label>
+                      <input />
+                    </div>
+                    <div className="editDepartmentBtns">
+                     
+                        <button
+                          onClick={() => setChangeModal(false)}
+                          className="cancel-new"
+                        >
+                          Cancel
+                        </button>
+
+                        <button id="create">Yes</button>
+                    
+                    </div>
+                  </div>
+               
+                  </div>
+              </div>
+            )}
             <div className="performanceTableContainer">
               {performData.map((a, index) => (
                 <>
                   {/* <div className="grab"> */}
-                  <div className="mine2">
+                  <div>
                     <div className="textDiv">
                       <div className="performUserTexts">
                         <div className="performUserText">
@@ -102,6 +142,9 @@ let positionNumber = 1;
                             Total:<span>{a.total_score?.total2}%</span>
                           </p>
                         </div>
+                        <button id="mod" onClick={() => setChangeModal(true)}>
+                          Change
+                        </button>
                       </div>
                     </div>
                     <button
@@ -140,43 +183,44 @@ let positionNumber = 1;
                           <td>{a.total_score.sub}%</td>
                         </tr>
 
-                        {a.position?.positionlevel?.positionskills?.map(
-                          (skill) => (
-                            <tr>
-                              <td>{skill.name}</td>
-                              <td>{Number(skill.weight)?.toFixed(1)}</td>
-                              <td>
-                                {" "}
-                                {a.all_scores?.manager[skill?.name] /
-                                a.all_scores?.manager[skill?.name + "say"]
-                                  ? a.all_scores?.manager[skill?.name] /
-                                    a.all_scores?.manager[skill?.name + "say"]
-                                  : "-"}
-                              </td>
-                              <td>
-                                {a.all_scores?.cowerker[skill?.name] /
-                                a.all_scores?.cowerker[skill?.name + "say"]
-                                  ? a.all_scores?.cowerker[skill?.name] /
-                                    a.all_scores?.cowerker[skill?.name + "say"]
-                                  : "-"}
-                              </td>
-                              <td>
-                                {a.all_scores?.selfscore[skill?.name] /
-                                a.all_scores?.selfscore[skill?.name + "say"]
-                                  ? a.all_scores?.selfscore[skill?.name] /
-                                    a.all_scores?.selfscore[skill?.name + "say"]+'%'
-                                  : "-"}
-                              </td>
-                              <td>
-                                {a.all_scores?.sub[skill?.name] /
-                                a.all_scores?.sub[skill?.name + "say"]
-                                  ? a.all_scores?.sub[skill?.name] /
-                                    a.all_scores?.sub[skill?.name + "say"]
-                                  : "-"}
-                              </td>
-                            </tr>
-                          )
-                        )}
+                        {a.position?.myskills?.map((skill) => (
+                          <tr>
+                            <td>{skill.name}</td>
+                            <td>{Number(skill.weight)?.toFixed(1)}</td>
+                            <td>
+                              {" "}
+                              {a.all_scores?.manager[skill?.name] /
+                              a.all_scores?.manager[skill?.name + "say"]
+                                ? a.all_scores?.manager[skill?.name] /
+                                  a.all_scores?.manager[skill?.name + "say"]
+                                : "-"}
+                            </td>
+                            <td>
+                              {a.all_scores?.cowerker[skill?.name] /
+                              a.all_scores?.cowerker[skill?.name + "say"]
+                                ? a.all_scores?.cowerker[skill?.name] /
+                                  a.all_scores?.cowerker[skill?.name + "say"]
+                                : "-"}
+                            </td>
+                            <td>
+                              {a.all_scores?.selfscore[skill?.name] /
+                              a.all_scores?.selfscore[skill?.name + "say"]
+                                ? a.all_scores?.selfscore[skill?.name] /
+                                    a.all_scores?.selfscore[
+                                      skill?.name + "say"
+                                    ] +
+                                  "%"
+                                : "-"}
+                            </td>
+                            <td>
+                              {a.all_scores?.sub[skill?.name] /
+                              a.all_scores?.sub[skill?.name + "say"]
+                                ? a.all_scores?.sub[skill?.name] /
+                                  a.all_scores?.sub[skill?.name + "say"]
+                                : "-"}
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   )}
@@ -184,6 +228,7 @@ let positionNumber = 1;
               ))}
             </div>
           </div>
+
           <div className="chart-btns">
             <Link to="/matrix">
               <button>Go back</button>

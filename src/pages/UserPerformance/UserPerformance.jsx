@@ -208,7 +208,7 @@ const getElementStyle = () => {
                                               max={100}
                                             />
                                           </td>
-                                          <td>{skill.type}</td>
+                                          <td>{skill.skilltype}</td>
                                         </tr>
                                       ))}
                                     <tr key="total">
@@ -253,7 +253,7 @@ const getElementStyle = () => {
                                   <tr>
                                     <td>{skill.name}</td>
                                     <td>{Number(skill.weight)?.toFixed(1)}</td>
-                                    <td>{skill.type}</td>
+                                    <td>{skill.skilltype}</td>
                                   </tr>
                                 ))}
                             </tbody>

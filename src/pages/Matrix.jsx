@@ -111,6 +111,7 @@ function Matrix() {
 
   const tableRows = uniqueSkills
     .map((skillName) => {
+      
       const skillRow = {
         skill: skillName,
         norms: {},
@@ -119,20 +120,24 @@ function Matrix() {
       filteredCompetencies.forEach((competency) => {
         if (competency.skill.name === skillName) {
           skillRow.norms[competency.position.name] = competency.norm;
+          skillRow.skilltype = competency.skilltype
           skillRow.positions.add(competency.position.name);
         }
       });
       return skillRow;
-    })
-    .map((row) => (
+    }).sort((a,b)=>a.skilltype.localeCompare(b.skilltype))
+    .map((row) =>
+
+    (
       <tr key={row.skill}>
         <td>{row.skill}</td>
+        <td>{ row.skilltype}</td>
         {filteredPositions.map((position) =>
           row.norms[position] !== undefined ? (
             <td key={`${row.skill}-${position}`}>{row.norms[position]}</td>
           ) : (
             <>
-              <td>-</td>
+             <td>-</td>
               {addNormModal &&
                 selectedNorm ==
                   `${row.skill}-${position}-${row.norms[position + "id"]}` && (
@@ -153,13 +158,16 @@ function Matrix() {
           )
         )}
       </tr>
-    ));
+    )
+    );
 
   const tableHeaders = [
     <th>
       Positions
       <hr />
       Competencies
+    </th>, <th>
+      Skill Type
     </th>,
     ...filteredPositions.map((position) => <th key={position} >{position}</th>),
   ];
