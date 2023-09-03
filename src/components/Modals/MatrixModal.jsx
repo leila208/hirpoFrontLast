@@ -19,7 +19,7 @@ function MatrixModal({
   const [addCompetencyModal, setCompetencyModal] = useState(false);
   const getNewSkills = async () => {
     const token = localStorage.getItem("access_token");
-    const response = await fetch(`https://admin.hirpo.net/wizard/upload/`, {
+    const response = await fetch(`http://127.0.0.1:8000/wizard/upload/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -265,7 +265,7 @@ function MatrixModal({
     // window.location.reload();
     e.preventDefault();
     const a = await fetch(
-      "https://admin.hirpo.net/wizard/WizardComptencySaveView",
+      "http://127.0.0.1:8000/wizard/WizardComptencySaveView",
       {
         method: "POST",
         headers: {

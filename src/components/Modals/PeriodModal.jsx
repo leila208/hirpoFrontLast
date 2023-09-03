@@ -16,7 +16,7 @@ function PeriodModal({ setPeriodModal, projectId, getData}) {
   };
   const savePeriodData = async (e) => {
   
-    const a = await fetch("https://admin.hirpo.net/eva/AddPeriodApiView/", {
+    const a = await fetch("http://127.0.0.1:8000/eva/AddPeriodApiView/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -17,7 +17,7 @@ const SelfChart = () => {
   const project_id = window.localStorage.getItem("project");
    const getData = async () => {
      const token = localStorage.getItem("access_token");
-     const response = await fetch("https://admin.hirpo.net/wizard/depposition/", {
+     const response = await fetch("http://127.0.0.1:8000/wizard/depposition/", {
        headers: {
          Authorization: `Bearer ${token}`,
        },
@@ -34,7 +34,7 @@ const SelfChart = () => {
     getData();
   }, []);
   const handleDelete = async () => {
-    const data2 = await fetch("https://admin.hirpo.net/wizard/goback", {
+    const data2 = await fetch("http://127.0.0.1:8000/wizard/goback", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

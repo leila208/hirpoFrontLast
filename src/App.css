@@ -1016,9 +1016,11 @@ text {
   background-color: #296198;
   border-radius: 10px;
   border: none;
-
+  width:10%;
   height: 30px;
   font: normal 400 20px "Roboto";
   color: #fff !important;
   margin-top: 10px;
+  margin-left:auto;
+
 }

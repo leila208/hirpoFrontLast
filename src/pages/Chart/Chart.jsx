@@ -17,7 +17,7 @@ function Chart() {
   const getData = async () => {
     const token = localStorage.getItem("access_token");
     const response = await fetch(
-      "https://admin.hirpo.net/wizard/depposition/",
+      "http://127.0.0.1:8000/wizard/depposition/",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -37,7 +37,7 @@ function Chart() {
     getData();
   }, []);
   const handleDelete = async () => {
-    const data2 = await fetch("https://admin.hirpo.net/wizard/goback", {
+    const data2 = await fetch("http://127.0.0.1:8000/wizard/goback", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ function Chart() {
   const [chartModal, setChartModal] = useState(false);
   const CreateCompetency = async () => {
     const token = localStorage.getItem("access_token");
-    const data = await fetch(`https://admin.hirpo.net/wizard/download`, {
+    const data = await fetch(`http://127.0.0.1:8000/wizard/download`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

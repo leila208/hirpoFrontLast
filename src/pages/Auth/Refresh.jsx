@@ -10,7 +10,7 @@ function refreshToken() {
   const nav = useNavigate();
   useEffect(() => {
     const refreshAccessToken = () => {
-      fetch("https://admin.hirpo.net/account/api/token/refresh/", {
+      fetch("http://127.0.0.1:8000/account/api/token/refresh/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

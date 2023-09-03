@@ -20,7 +20,7 @@ function PerformEdit() {
   const handleSave = async (e) => {
     e.preventDefault();
     const a = await fetch(
-      "https://admin.hirpo.net/eva/PerformCardUpdateView/",
+      "http://127.0.0.1:8000/eva/PerformCardUpdateView/",
       {
         method: "PUT",
         headers: {
@@ -42,7 +42,7 @@ function PerformEdit() {
       const token = localStorage.getItem("access_token");
 
       const response = await fetch(
-        `https://admin.hirpo.net/eva/EvaluateComptencyList/${id}`,
+        `http://127.0.0.1:8000/eva/EvaluateComptencyList/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -30,7 +30,7 @@ function AddCompetencyModal({
       norm: parseInt(normForCompetency),
     };
     axios
-      .post("https://admin.hirpo.net/wizard/CreateMainSkill/", requestData)
+      .post("http://127.0.0.1:8000/wizard/CreateMainSkill/", requestData)
       .then((response) => {
       })
       .catch((error) => {
@@ -49,7 +49,7 @@ function AddCompetencyModal({
   const getPname = async () => {
     const token = localStorage.getItem("access_token");
     const response = await fetch(
-      `https://admin.hirpo.net/wizard/ListPositionView/`,
+      `http://127.0.0.1:8000/wizard/ListPositionView/`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

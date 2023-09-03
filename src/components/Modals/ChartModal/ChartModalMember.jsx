@@ -40,7 +40,7 @@ function ChartModalMember({
   const handleDeleteChart = async (e, id) => {
     e.preventDefault();
     const a = await fetch(
-      `https://admin.hirpo.net/wizard/PositionDeleteView/${id}/`,
+      `http://127.0.0.1:8000/wizard/PositionDeleteView/${id}/`,
       {
         method: "DELETE",
         headers: {

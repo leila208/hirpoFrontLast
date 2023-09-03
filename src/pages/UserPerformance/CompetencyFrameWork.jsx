@@ -27,7 +27,7 @@ const token = localStorage.getItem("access_token");
    const getSkills = async () => {
      const token = localStorage.getItem("access_token");
      setIsLoading(true);
-     const response = await fetch(`https://admin.hirpo.net/wizard/upload/`, {
+     const response = await fetch(`http://127.0.0.1:8000/wizard/upload/`, {
        headers: {
          Authorization: `Bearer ${token}`,
        },

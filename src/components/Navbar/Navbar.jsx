@@ -5,7 +5,7 @@ import "./navbar.css";
 import UserDropdown from "./UserDropdown";
 const handleLogout = async () => {
   try {
-    const response = await fetch("https://admin.hirpo.net/wizard/logout", {
+    const response = await fetch("http://127.0.0.1:8000/wizard/logout", {
       method: "POST",
     });
     if (response.ok) {

@@ -16,7 +16,7 @@ function UserPerformancePanel() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "https://admin.hirpo.net/wizard/depposition/",
+        "http://127.0.0.1:8000/wizard/depposition/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -47,7 +47,7 @@ function UserPerformancePanel() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "https://admin.hirpo.net/eva/EmployeePerformance/",
+        "http://127.0.0.1:8000/eva/EmployeePerformance/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -63,12 +63,29 @@ function UserPerformancePanel() {
     };
     getData();
   }, []);
-  console.log(performData,'--------------')
+
+  console.log(performData, "--------------");
 
   const [displayedTableIndices, setDisplayedTableIndices] = useState([]);
   let positionNumber = 1;
-  console.log(performData.map((a) => a))
-  const [changeModal,setChangeModal] = useState(false)
+  console.log(performData.map((a) => a));
+  const [changeModal, setChangeModal] = useState(false);
+
+  const [total, setTotal] = useState({
+    manager: "",
+    sub: "",
+    cowerker: "",
+    self: "",
+  });
+  const handleInput = (e) => {
+    setTotal({ ...total, [e.target.name]: e.target.value });
+  };
+  const [id, setId] = useState(0);
+  const handleFunctions = () => {
+    setChangeModal(true),
+      setId(a.id);
+  }
+  const handleTotal = () => {};
   return (
     <>
       <Navbar />
@@ -81,39 +98,65 @@ function UserPerformancePanel() {
             {changeModal && (
               <div className={`modelWrapper open`}>
                 <div className="addMemberModal">
-                 
                   <div className="resetModal background">
                     <div className="one-userinput">
-                      <label></label>
-                      <input />
+                      <label>Manager</label>
+                      <input
+                        onChange={handleInput}
+                        name="manager"
+                        type="number"
+                        autoComplete="off"
+                        value={total.manager}
+                        placeholder="Manager"
+                      />
                     </div>
                     <div className="one-userinput">
-                      <label></label>
-                      <input />
+                      <label>Sub</label>
+                      <input
+                        onChange={handleInput}
+                        name="sub"
+                        type="number"
+                        autoComplete="off"
+                        value={total.sub}
+                        placeholder="Sub"
+                      />
                     </div>
                     <div className="one-userinput">
-                      <label></label>
-                      <input />
+                      <label>Cowerker</label>
+                      <input
+                        onChange={handleInput}
+                        name="cowerker"
+                        type="number"
+                        autoComplete="off"
+                        value={total.cowerker}
+                        placeholder="Coworker"
+                      />
                     </div>
                     <div className="one-userinput">
-                      <label></label>
-                      <input />
+                      <label> Self</label>
+                      <input
+                        onChange={handleInput}
+                        name="self"
+                        type="number"
+                        autoComplete="off"
+                        value={total.self}
+                        placeholder="Self"
+                      />
                     </div>
                     <div className="editDepartmentBtns">
-                     
-                        <button
-                          onClick={() => setChangeModal(false)}
-                          className="cancel-new"
-                        >
-                          Cancel
-                        </button>
+                      <button
+                        onClick={() => setChangeModal(false)}
+                        className="cancel-new"
+                      >
+                        Cancel
+                      </button>
 
-                        <button id="create">Yes</button>
-                    
+                      <button id="create" onClick={handleTotal}>
+                        Yes
+                      </button>
                     </div>
                   </div>
-               
-                  </div>
+                </div>
               </div>
             )}
             <div className="performanceTableContainer">
@@ -139,11 +182,17 @@ function UserPerformancePanel() {
                         </div>
                         <div className="performUserText">
                           <p>
-                            Total:<span>{a.total_score?.total2}%</span>
+                            Total:
+                            <span>
+                              {a.total_score?.total2
+                                ?.toString()
+                                .substring(0, 4)}
+                              %
+                            </span>
                           </p>
                         </div>
-                        <button id="mod" onClick={() => setChangeModal(true)}>
-                          Change
+                        <button id="mod" onClick={handleFunctions }>
+                          <i className="fa-solid fa-calculator"></i>
                         </button>
                       </div>
                     </div>

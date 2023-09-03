@@ -12,7 +12,7 @@ function Sidebar() {
       const getData = async () => {
         const token = localStorage.getItem("access_token");
         const response = await fetch(
-          "https://admin.hirpo.net/wizard/CheckUserPermission/",
+          "http://127.0.0.1:8000/wizard/CheckUserPermission/",
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -14,7 +14,7 @@ function AddChart({
 
   const handleAdd = async (e) => {
     e.preventDefault();
-    const a = await fetch("https://admin.hirpo.net/wizard/PositionAddView/", {
+    const a = await fetch("http://127.0.0.1:8000/wizard/PositionAddView/", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
