@@ -81,11 +81,23 @@ function UserPerformancePanel() {
     setTotal({ ...total, [e.target.name]: e.target.value });
   };
   const [id, setId] = useState(0);
-  const handleFunctions = () => {
+  const handleFunctions = (id) => {
     setChangeModal(true),
-      setId(a.id);
+      setId(id);
   }
-  const handleTotal = () => {};
+    const [secondtotal, setSecondtotal] = useState(0);
+  const handleTotal = () => {
+    console.log(id)
+    const a = performData.filter((a) => a.user == id)[0]
+    console.log(a)
+    console.log(a.total_score.selfscore,total.self)
+    console.log(a.total_score.manager, total.manager);
+    setSecondtotal(a.total_score.manager * total.manager/100 +
+    a.total_score.selfscore * total.self/100 +
+    a.total_score.sub * total.sub/100 +
+      a.total_score.cowerker * total.cowerker / 100);
+    setChangeModal(false)
+  };
   return (
     <>
       <Navbar />
@@ -188,10 +200,16 @@ function UserPerformancePanel() {
                                 ?.toString()
                                 .substring(0, 4)}
                               %
+                              
                             </span>
+                            {a.user == id ? (<span>total2:{secondtotal}%</span>):""}
+ 
+                            
+                         
                           </p>
                         </div>
-                        <button id="mod" onClick={handleFunctions }>
+                        <button id="mod" onClick={(
+                          )=>handleFunctions(a.user) }>
                           <i className="fa-solid fa-calculator"></i>
                         </button>
                       </div>
