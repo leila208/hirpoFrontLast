@@ -20,7 +20,7 @@ function DashBoard() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "http://127.0.0.1:8000/wizard/HomePageView/",
+        "https://admin.hirpo.net/wizard/HomePageView/",
         {
           headers: {
             Authorization: `Bearer ${token}`,

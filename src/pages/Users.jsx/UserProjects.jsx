@@ -21,7 +21,7 @@ function UserProject() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "http://127.0.0.1:8000/wizard/depposition/",
+        "https://admin.hirpo.net/wizard/depposition/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ function UserProject() {
     const getData = async () => {
       const token = localStorage.getItem("access_token");
       const response = await fetch(
-        "http://127.0.0.1:8000/wizard/EmployeePageView/",
+        "https://admin.hirpo.net/wizard/EmployeePageView/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -114,7 +114,7 @@ function UserProject() {
             <div className="userpanel-head-right">
               <img
                 className="userImg"
-                src={`http://127.0.0.1:8000/${user.image}`}
+                src={`https://admin.hirpo.net/${user.image}`}
               />
               <button className="magic" onClick={() => setPhotoModal(true)}>
                 Change Photo

@@ -19,7 +19,7 @@ function ChartModal({ setChartModal ,getData}) {
   const getPositionData = async () => {
     const token = localStorage.getItem("access_token");
     const response = await fetch(
-      "http://127.0.0.1:8000/wizard/depposition/",
+      "https://admin.hirpo.net/wizard/depposition/",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ function ChartModal({ setChartModal ,getData}) {
   const handleSubmit = async (e) => {
     // window.location.reload();
     e.preventDefault();
-    const a = await fetch("http://127.0.0.1:8000/wizard/positionupdate", 
+    const a = await fetch("https://admin.hirpo.net/wizard/positionupdate", 
     {
       method: "PUT",
       headers: {

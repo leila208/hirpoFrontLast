@@ -18,7 +18,7 @@ function ResetModal({ setResetModal, myuserid}) {
     e.preventDefault();
     if (match) {
     const a = await fetch(
-      `http://127.0.0.1:8000/account/EmployeeChangePasswordView/${myuserid}`,
+      `https://admin.hirpo.net/account/EmployeeChangePasswordView/${myuserid}`,
       {
         method: "PUT",
         headers: {

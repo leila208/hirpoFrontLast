@@ -13,7 +13,7 @@ function FrequencyModal({ setFrequencyModal, period, getFreData }) {
     setFrequencyData({ ...frequencyData, [e.target.name]: e.target.value });
   };
   const saveFrequencyData = async (e) => {
-    const a = await fetch("http://127.0.0.1:8000/eva/AddFrequencyApiView/", {
+    const a = await fetch("https://admin.hirpo.net/eva/AddFrequencyApiView/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

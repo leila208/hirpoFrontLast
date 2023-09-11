@@ -27,7 +27,7 @@ function Matrix() {
   const token = localStorage.getItem("access_token");
   const fetchSkills = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/wizard/upload/`, {
+      const response = await fetch(`https://admin.hirpo.net/wizard/upload/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -174,7 +174,7 @@ function Matrix() {
 
   const accessToken = window.localStorage.getItem("access_token");
   const handleWeights = async (e) => {
-    const a = await fetch("http://127.0.0.1:8000/wizard/Get_Weights/", {
+    const a = await fetch("https://admin.hirpo.net/wizard/Get_Weights/", {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${accessToken}`,

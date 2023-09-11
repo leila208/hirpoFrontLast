@@ -20,7 +20,7 @@ function PhotoModal({ setPhotoModal,id }) {
     const formDataObj = new FormData()
     formDataObj.append('file',file)
     formDataObj.append('data',id)
-    const a = await fetch("http://127.0.0.1:8000/wizard/ChangePPView/", {
+    const a = await fetch("https://admin.hirpo.net/wizard/ChangePPView/", {
       method: "POST",
       mode: "cors",
 

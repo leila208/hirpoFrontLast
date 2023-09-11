@@ -40,7 +40,7 @@ function AddMemberModal({
     e.preventDefault();
 
     const a = await fetch(
-      "http://127.0.0.1:8000/wizard/CreatePositionView/",
+      "https://admin.hirpo.net/wizard/CreatePositionView/",
       {
         method: "POST",
         headers: {

@@ -9,7 +9,7 @@ function SendResetCode() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const a = await fetch(
-      "http://127.0.0.1:8000/account/SendResetCodeView/",
+      "https://admin.hirpo.net/account/SendResetCodeView/",
       {
         method: "POST",
         headers: {

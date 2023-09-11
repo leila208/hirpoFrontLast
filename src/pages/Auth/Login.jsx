@@ -24,7 +24,7 @@ function Login({ dispatch }) {
 
   const login = async (e) => {
     e.preventDefault();
-    await fetch("http://127.0.0.1:8000/account/api/token/", {
+    await fetch("https://admin.hirpo.net/account/api/token/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
